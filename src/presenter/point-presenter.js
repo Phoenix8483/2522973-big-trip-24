@@ -68,18 +68,52 @@ export default class PointPresenter {
 
     remove(prevTaskComponent);
     remove(prevTaskEditComponent);
-    render(this.#pointComponent, this.#container);
+    //render(this.#pointComponent, this.#container);
+  }
+
+  setSaving() {
+    if (this.#mode === Mode.EDITING) {
+      this.#pointEditComponent.updateElement({
+        isDisabled: true,
+        isSaving: true,
+      });
+    }
+  }
+
+  setDeleting() {
+    if (this.#mode === Mode.EDITING) {
+      this.#pointEditComponent.updateElement({
+        isDisabled: true,
+        isDeleting: true,
+      });
+    }
+  }
+
+  setAborting() {
+    if (this.#mode === Mode.DEFAULT) {
+      this.#pointComponent.shake();
+      return;
+    }
+    const resetFormState = () => {
+      this.#pointEditComponent.updateElement({
+        isDisabled: false,
+        isSaving: false,
+        isDeleting: false,
+      });
+    };
+    this.#pointEditComponent.shake(resetFormState);
+  }
+
+  resetView() {
+    if (this.#mode !== Mode.DEFAULT) {
+      this.#pointEditComponent.reset();
+      this.#replaceFormToPoint();
+    }
   }
 
   destroy() {
     remove(this.#pointComponent);
     remove(this.#pointEditComponent);
-  }
-
-  resetView() {
-    if (this.#mode !== Mode.DEFAULT) {
-      this.#replaceFormToPoint();
-    }
   }
 
   #escKeyDownHandler = (evt) => {

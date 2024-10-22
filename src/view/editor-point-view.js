@@ -199,7 +199,7 @@ export default class EditorPointView extends AbstractStatefulView{
 
   #formSubmitHandler = (evt) => {
     evt.preventDefault();
-    this.#handleFormSubmit(EditorPointView.parseStateToPoint(this.#point));
+    this.#handleFormSubmit(EditorPointView.parseStateToPoint(this._state));
   };
 
   #dateFromChangeHandler = ([userDate]) => {
