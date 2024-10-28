@@ -123,7 +123,6 @@ export default class PointsModel extends Observable {
     delete adaptedPoint['base_price'];
     delete adaptedPoint['is_favorite'];
 
-
     return adaptedPoint;
   }
 }

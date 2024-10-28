@@ -6,7 +6,7 @@ import EditPointButton from './view/new-point-button-view.js';
 import PointsApiService from './points-api-service.js';
 import { render, RenderPosition } from './framework/render.js';
 
-const AUTHORIZATION = 'Basic giekf8he9854e';
+const AUTHORIZATION = 'Basic giekf36he9854e';
 const END_POINT = 'https://24.objects.htmlacademy.pro/big-trip';
 const siteTripInfoElement = document.querySelector('.trip-main');
 const filtersContainer = siteTripInfoElement.querySelector('.trip-controls__filters');
