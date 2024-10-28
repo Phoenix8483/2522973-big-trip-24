@@ -25,7 +25,7 @@ const createTripInfoTemplate = (destinations, dates, price) => {
 
   const priceSection = price ? `Total: &euro;&nbsp;<span class="trip-info__price-value">${price}</span>` : '';
   return (`
-    <section class="trip-main__trip-info  trip-info">
+    <section class="trip-main__trip-info  trip-info" style="justify-content: space-between">
       <div class="trip-info__main">
         <h1 class="trip-info__title">${createTitleSection()}</h1>
 
